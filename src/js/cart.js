@@ -1,30 +1,52 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-  // Convert single-item saves into an array so mapping works.
   const normalizedItems = Array.isArray(cartItems) ? cartItems : [cartItems];
-  const htmlItems = normalizedItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  const htmlItems = normalizedItems.map(cartItemTemplate);
+  const listElement = document.querySelector(".product-list");
+  listElement.innerHTML = htmlItems.join("");
+
+  // Attach event listeners to remove buttons
+  const removeButtons = listElement.querySelectorAll(".cart-card button");
+  removeButtons.forEach((button, index) => {
+    button.addEventListener("click", () => removeFromCart(index));
+  });
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
-  return newItem;
+function cartItemTemplate(item, index) {
+  return `
+    <li class="cart-card divider">
+      <a href="#" class="cart-card__image">
+        <img src="${item.Image}" alt="${item.Name}" />
+      </a>
+      <a href="#">
+        <h2 class="card__name">${item.Name}</h2>
+      </a>
+      <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+      <p class="cart-card__quantity">
+        qty: 1
+        <button data-index="${index}" class="remove-btn">Remove</button>
+      </p>
+      <p class="cart-card__price">$${item.FinalPrice}</p>
+    </li>
+  `;
 }
 
+function removeFromCart(index) {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const normalizedItems = Array.isArray(cartItems) ? cartItems : [cartItems];
+
+  // Remove only one item at this specific index
+  normalizedItems.splice(index, 1);
+
+  // Save updated array
+  setLocalStorage("so-cart", normalizedItems);
+
+  // Re-render cart
+  renderCartContents();
+}
+
+// Initialize cart
 renderCartContents();
