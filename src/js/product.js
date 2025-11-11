@@ -1,4 +1,4 @@
-import { getParam } from "./utils.mjs";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from './ProductDetails.mjs';
 
@@ -9,3 +9,5 @@ const productDetails = new ProductDetails(productId, dataSource);
 productDetails.init();
 
 // Moved addProductToCart to ProductDetails.mjs as asignment stated
+
+loadHeaderFooter();
