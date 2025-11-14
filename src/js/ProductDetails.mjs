@@ -33,7 +33,7 @@ export default class ProductDetails {
     renderTo.querySelector("h2").textContent = product.NameWithoutBrand;
 
     const productImage = renderTo.querySelector("img");
-    productImage.src = product.Image;
+    productImage.src = product.Images.PrimaryExtraLarge;;
     productImage.alt = product.NameWithoutBrand;
 
     renderTo.querySelector(".product-card__price").textContent = "$" + product.FinalPrice;

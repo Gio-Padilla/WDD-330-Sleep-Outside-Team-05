@@ -261,3 +261,27 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Style the Categories on the main page */
+
+.product-categories {
+  margin: 1rem;
+}
+
+.product-categories ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.product-categories ul a{
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.title {
+  padding: 1rem;
+}
