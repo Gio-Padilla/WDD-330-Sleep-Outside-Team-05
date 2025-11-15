@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, notify } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -22,10 +22,21 @@ export default class ProductDetails {
     // Use the stored product object
     const product = this.product;
 
-    const cart = getLocalStorage("so-cart");
-    const cartItems = Array.isArray(cart) ? cart : cart ? [cart] : [];
-    cartItems.push(product);
-    setLocalStorage("so-cart", cartItems);
+    let cart = getLocalStorage("so-cart") || [];
+    cart = Array.isArray(cart) ? cart : [cart];
+    const existing = cart.find(item => item.Id === product.Id);
+
+    if (existing) {
+      // If found, increase quantity
+      existing.quantity = (existing.quantity || 1) + 1;
+      notify(`Quantity updated to ${existing.quantity}!`);
+    } else {
+      // If not found, add as a new item with quantity = 1
+      // We have the "..." because we want to keep all the existing product fields add quantity without modifying the original product object.
+      cart.push({...product, quantity: 1});
+      notify("Added to cart!");
+    }
+    setLocalStorage("so-cart", cart);
   }
 
   renderProductDetails(product, renderTo) {

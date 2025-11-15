@@ -285,3 +285,30 @@ footer {
 .title {
   padding: 1rem;
 }
+
+.remove-btn {
+  margin-top: 1rem;
+}
+
+#center-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#center-toast.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
