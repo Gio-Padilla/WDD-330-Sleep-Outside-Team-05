@@ -1,3 +1,8 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, dates } from "./utils.mjs";
 
-loadHeaderFooter();
+async function init() {
+    await loadHeaderFooter();
+    dates();
+}
+
+init();

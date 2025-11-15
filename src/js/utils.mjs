@@ -80,3 +80,8 @@ export function notify(message) {
     }, 300); // matches fade-out transition
   }, 2000); // visible for 2 seconds
 }
+
+export function dates() {
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = `Last Update: ${document.lastModified}`
+}
