@@ -3,22 +3,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
-    <link rel="stylesheet" href="css/style.css" />
-
+    <link rel="stylesheet" href="/css/style.css" />
     <script type="module" src="../js/checkout.js"></script>
   </head>
 
   <body>
     <header class="divider" id="header-contents"></header>
-
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form action="">
+
+          <label for="fname">First Name:</label>
+          <input type="text" name="fname" id="fname" required>
+          <label for="lname">Last Name: </label>
+          <input type="text" name="lname" id="lname" required>
+          <label for=""></label>
+          <h3>Address</h3>
+          <label for="address-street">Street: </label>
+          <input type="text" name="address-street" id="address-street" required>
+          <label for="address-city">City: </label>
+          <input type="text" name="address-city" id="address-city" required>
+          <label for="address-state">State: </label>
+          <input type="text" name="address-state" id="address-state" required>
+          <label for="address-zip">Zip Code: </label>
+          <input type="number" name="address-zip" id="address-zip" required>
+          <h3>Payment Details</h3>
+          <label for="card-number">Card Number: </label>
+          <input type="number" name="card-number" id="card-number" required>
+          <label for="card-date">Expiration Date: </label>
+          <input type="text" name="card-date" id="card-date" required>
+          <label for="card-code">Security Code: </label>
+          <input type="number" name="card-code" id="card-code" required>
+        </form>
+        <div id="price-details">
+          <p>Sub-total: $<span class="cart-total"></span></p>
+          <p>Tax (5%): $<span class="cart-tax"></span></p>
+          <p>Shipping Cost: $<span class="cart-shipping"></span></p>
+          <p>Cart Total: $<span class="cart-final-price"></span></p>
+        </div>
+
       </section>
     </main>
 
