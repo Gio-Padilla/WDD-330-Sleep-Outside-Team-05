@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: "src/",
+  base: "https://gio-padilla.github.io/WDD-330-Sleep-Outside-Team-05/",
   build: {
     outDir: "../dist",
     rollupOptions: {
