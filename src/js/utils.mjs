@@ -85,3 +85,15 @@ export function dates() {
   document.getElementById("currentYear").textContent = new Date().getFullYear();
   document.getElementById("lastModified").textContent = `Last Update: ${document.lastModified}`
 }
+
+export function updateCartTotal() {
+  const cartTotalElement = document.querySelector(".cart-total");
+  let cartTotal = 0;
+  const cartItems = getLocalStorage("so-cart") || [];
+  cartItems.forEach(item => {
+    cartTotal += item.FinalPrice * item.quantity;
+  });
+
+  cartTotalElement.textContent = cartTotal;
+  return cartTotal;
+}
