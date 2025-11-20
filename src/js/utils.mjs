@@ -94,6 +94,8 @@ export function updateCartTotal() {
     cartTotal += item.FinalPrice * item.quantity;
   });
 
+  cartTotal = parseFloat(cartTotal.toFixed(2));
+
   cartTotalElement.textContent = cartTotal;
   return cartTotal;
 }
