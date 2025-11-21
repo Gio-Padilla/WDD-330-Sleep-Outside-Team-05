@@ -11,7 +11,7 @@
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "test": "jest",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -t"
+    "deploy": "gh-pages -d dist -t -r https://github.com/<username>/<repo>.git --dotfiles --branch gh-pages --message 'Deploying latest build'"
   },
   "author": "Shane Thompson",
   "license": "ISC",
