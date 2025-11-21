@@ -1,4 +1,5 @@
-const baseURL = import.meta.env.VITE_SERVER_URL;
+// const baseURL = import.meta.env.VITE_SERVER_URL; // I had to display the URL in order to get it to work with github pages
+const baseURL = "https://wdd330-backend.onrender.com/";
 
 function convertToJson(res) {
   if (res.ok) {
