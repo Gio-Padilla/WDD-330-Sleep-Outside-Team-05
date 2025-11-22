@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, loadHeaderFooter, updateCartTotal } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, loadHeaderFooter, updateCartTotal, notify } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
@@ -83,6 +83,19 @@ function removeFromCart(index) {
   renderCartContents();
 }
 
+function checkoutButtonEvent() {
+  const checkoutButton = document.querySelector(".continue-to-checkout");
+  checkoutButton.addEventListener("click", () => {
+    const currentCart = getLocalStorage("so-cart");
+    if (currentCart == "") {
+      notify("Please add something to the cart before going to checkout.", 5);
+    } else {
+      window.location.href = "/checkout/";
+    }
+  });
+}
+
 // Initialize
 renderCartContents();
 loadHeaderFooter();
+checkoutButtonEvent();

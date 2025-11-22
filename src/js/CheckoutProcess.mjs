@@ -1,4 +1,4 @@
-import { getLocalStorage} from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -87,10 +87,10 @@ export default class CheckoutProcess {
         const shippingElement = document.querySelector(`#${this.outputElement} .cart-shipping`);
         const priceElement = document.querySelector(`#${this.outputElement} .cart-final-price`);
 
-        cartTotalElement.textContent = this.itemTotal;
-        shippingElement.textContent = this.shipping;
-        taxElement.textContent = this.tax;
-        priceElement.textContent = this.orderTotal;
+        cartTotalElement.textContent = this.itemTotal.toFixed(2);
+        shippingElement.textContent = this.shipping.toFixed(2);
+        taxElement.textContent = this.tax.toFixed(2);
+        priceElement.textContent = this.orderTotal.toFixed(2);
     }
 
     calculateItemSummary() {
@@ -117,6 +117,10 @@ export default class CheckoutProcess {
         try {
             const response = await services.checkout(formDataJSON);
             console.log(response);
+            if (response.message === "Order Placed") {
+                setLocalStorage("so-cart", []);
+                window.location.href = "/checkout/success.html";
+            }
         } catch (err) {
             console.log(err);
         }
