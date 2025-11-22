@@ -52,15 +52,15 @@ function testingInputs() { // Only run this to test the inputs
         document.getElementById("cardNumber").value = 1234123412341234;
         document.getElementById("code").value = 123;
         document.getElementById("expiration").value = "8/28";
-        document.getElementById("zip").value = "68137";
-        document.getElementById("fname").value = "Gio";
-        document.getElementById("lname").value = "Padilla";
-        document.getElementById("city").value = "Omaha";
-        document.getElementById("state").value = "NE";
-        document.getElementById("street").value = "123 West St";
+        // document.getElementById("zip").value = "68137";
+        // document.getElementById("fname").value = "Gio";
+        // document.getElementById("lname").value = "Padilla";
+        // document.getElementById("city").value = "Omaha";
+        // document.getElementById("state").value = "NE";
+        // document.getElementById("street").value = "123 West St";
     });
 }
 
-// testingInputs();
+testingInputs();
 
 checkCartInputs();
