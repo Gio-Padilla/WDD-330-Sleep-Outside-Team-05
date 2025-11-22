@@ -1,6 +1,6 @@
 import { loadHeaderFooter, dates } from "./utils.mjs";
 
-async function init() {
+export async function init() {
     await loadHeaderFooter();
     dates();
 }

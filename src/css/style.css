@@ -160,12 +160,39 @@ button {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
+}
+
+.divider {
+  width: 1000px;
+}
+
+.qty-input {
+  width: 50px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.remove-btn {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+.continue-to-checkout {
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Styles for product lists */
@@ -304,10 +331,6 @@ footer p {
   padding: 1rem;
 }
 
-.remove-btn {
-  margin-top: 1rem;
-}
-
 #center-toast {
   position: fixed;
   top: 50%;
@@ -329,12 +352,6 @@ footer p {
 
 .hidden {
   display: none;
-}
-
-.qty-input {
-  font-size: 1.2rem;
-  padding: 0.3rem;
-  margin-top: 0.3rem;
 }
 
 #checkout-form {
