@@ -65,7 +65,7 @@ export async function loadHeaderFooter() {
 // Adds a notification
 // Requires the following line to use:
 // <div id="center-toast" class="hidden"></div>
-export function notify(message) {
+export function notify(message, durrationInSeconds = 2) {
   const toast = document.getElementById("center-toast");
 
   toast.textContent = message;
@@ -78,7 +78,7 @@ export function notify(message) {
     setTimeout(() => {
       toast.classList.add("hidden");
     }, 300); // matches fade-out transition
-  }, 2000); // visible for 2 seconds
+  }, (durrationInSeconds * 1000)); // visible for 2 seconds
 }
 
 export function dates() {
