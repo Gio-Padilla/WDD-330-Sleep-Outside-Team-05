@@ -1,4 +1,5 @@
-import { getLocalStorage, setLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, updateCartTotal, notify } from "./utils.mjs";
+import { init } from "./main";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
@@ -46,7 +47,7 @@ function cartItemTemplate(item, index) {
       <p class="cart-card__color">${item.Colors[0].ColorName}</p>
 
       <p class="cart-card__quantity">
-        qty:
+        quantity:
         <input 
           type="number" 
           min="1" 
@@ -84,4 +85,4 @@ function removeFromCart(index) {
 
 // Initialize
 renderCartContents();
-loadHeaderFooter();
+init();
