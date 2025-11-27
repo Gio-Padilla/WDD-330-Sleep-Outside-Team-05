@@ -3,22 +3,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
-    <link rel="stylesheet" href="css/style.css" />
-
+    <link rel="stylesheet" href="../css/style.css" />
     <script type="module" src="../js/checkout.js"></script>
   </head>
 
   <body>
     <header class="divider" id="header-contents"></header>
-
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form id="checkout-form">
+          <fieldset>
+            <legend>Contact Info</legend>
+            <label for="fname" >First Name:</label><br>
+            <input type="text" name="fname" id="fname" required data-error='Error. Requirments: A valid input'><br>
+            <label for="lname">Last Name: </label><br>
+            <input type="text" name="lname" id="lname" required data-error='Error. Requirments: A valid input'><br>
+            <label for=""></label>
+          </fieldset>
+          <fieldset>
+            <legend>Address</legend>
+
+            <label for="street">Street: </label><br>
+            <input type="text" name="street" id="street" required data-error='Error. Requirments: A valid street'><br>
+            <label for="city">City: </label><br>
+            <input type="text" name="city" id="city" required data-error='Error. Requirments: A valid city'><br>
+            <label for="state">State: </label><br>
+            <input type="text" name="state" id="state" data-error='Error. Requirments: 2 letters, Both Capitals' required pattern="^[A-Z]{2}$" placeholder='State (2-Letter Abbreviation, Example: "AZ")'><br>
+            <label for="zip">Zip Code: </label><br>
+            <input type="text" name="zip" id="zip" required pattern="^\d{5}(-\d{4})?$" placeholder="Please enter a valid ZIP code (e.g., 12345)" data-error='Error. Requirments: A valid 5 number zip code'>
+          </fieldset>
+          <fieldset>
+            <legend>Payment Details</legend>
+            <label for="cardNumber">Card Number: </label><br>
+            <input type="text" name="cardNumber" id="cardNumber" required pattern="^\d{16}$" maxlength="16" placeholder="Enter a valid 16-digit card number" data-error='Error. Requirments: A valid input 16-digit card number'><br>
+            <label for="expiration">Expiration Date: </label><br>
+            <input type="text" name="expiration" id="expiration" required placeholder="Enter a valid expiration date in MM/YY format" pattern="^(0?[1-9]|1[0-2])\/\d{2}$" data-error='Error. Requirments: A valid expiration date formated as MM/YY'><br>
+            <label for="code">Security Code: </label><br>
+            <input type="number" name="code" id="code" required data-error='Error. Requirments: A valid security code'><br>
+          </fieldset>
+          <div id="price-details">
+            <p>Sub-total: $<span class="cart-total"></span></p>
+            <p>Tax (5%): $<span class="cart-tax"></span></p>
+            <p>Shipping Cost: $<span class="cart-shipping"></span></p>
+            <p>Cart Total: $<span class="cart-final-price"></span></p>
+          </div>
+          <button type="submit">Confirm Order</button>
+        </form>
+        
+
       </section>
     </main>
 

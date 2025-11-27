@@ -6,7 +6,7 @@
 
     <title>Sleep Outside | Cart</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
     <!-- Load the updated cart logic -->
     <script src="../js/cart.js" type="module" defer></script>
@@ -51,7 +51,12 @@
             <p class="cart-card__price">$199.99</p>
           </li> -->
         </ul>
+        <div class="cart-shows-total">
+          <p>Cart Total: $<span class="cart-total"></span></p>
+        </div>
+        <button class="continue-to-checkout">Check Out</button>
       </section>
+      <div id="center-toast" class="hidden"></div>
     </main>
 
     <footer id="footer-contents"></footer>

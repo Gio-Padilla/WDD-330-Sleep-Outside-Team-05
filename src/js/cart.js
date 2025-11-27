@@ -31,6 +31,7 @@ function renderCartContents() {
       updateQuantity(index, newQty);
     });
   });
+  updateCartTotal();
 }
 
 function cartItemTemplate(item, index) {
@@ -47,7 +48,11 @@ function cartItemTemplate(item, index) {
       <p class="cart-card__color">${item.Colors[0].ColorName}</p>
 
       <p class="cart-card__quantity">
+<<<<<<< HEAD
         quantity:
+=======
+        Quantity:
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
         <input 
           type="number" 
           min="1" 
@@ -83,6 +88,23 @@ function removeFromCart(index) {
   renderCartContents();
 }
 
+function checkoutButtonEvent() {
+  const checkoutButton = document.querySelector(".continue-to-checkout");
+  checkoutButton.addEventListener("click", () => {
+    const currentCart = getLocalStorage("so-cart");
+    if (currentCart == "") {
+      notify("Please add something to the cart before going to checkout.", 5);
+    } else {
+      window.location.href = "/checkout/";
+    }
+  });
+}
+
 // Initialize
 renderCartContents();
+<<<<<<< HEAD
 init();
+=======
+init();
+checkoutButtonEvent();
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f

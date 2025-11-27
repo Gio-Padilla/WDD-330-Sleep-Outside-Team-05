@@ -170,10 +170,23 @@ button {
 }
 
 .divider {
+<<<<<<< HEAD
 width: 900px;
 }
 
 
+=======
+  width: 1000px;
+}
+
+.qty-input {
+  width: 50px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  margin-top: 0.3rem;
+}
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
 
 .remove-btn {
   width: 120px;
@@ -325,8 +338,11 @@ footer p {
   padding: 1rem;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
 #center-toast {
   position: fixed;
   top: 50%;
@@ -348,4 +364,75 @@ footer p {
 
 .hidden {
   display: none;
+}
+
+#checkout-form {
+  background-color: lightgray;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+#checkout-form fieldset {
+  border: 1px solid black;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#checkout-form fieldset:not(:first-child) {
+  margin-top: 2rem;
+}
+
+#checkout-form legend {
+  padding: 0 0.5rem;
+}
+
+#checkout-form input {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+}
+
+#checkout-form input:invalid {
+  border-left: 10px solid red;
+}
+
+#checkout-form input:valid {
+  border-left: 10px solid green;
+}
+
+.purchase-message {
+  text-align: center;
+  margin: 3rem 1rem;
+
+  & button {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.cart a {
+  text-decoration: none;
+}
+
+.cart p {
+  display: inline;
+  background-color: rgb(224, 124, 87);
+  border-radius: 1rem;
+  padding: 0.4rem;
+  margin: 0 0 0 -1rem;
+  opacity: 0.9;
 }
