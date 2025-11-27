@@ -54,15 +54,21 @@ export async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const headerElement = document.querySelector("#header-contents");
-  renderWithTemplate(headerTemplate, headerElement);
+  try {
+    const headerTemplate = await loadTemplate("/partials/header.html");
+    const headerElement = document.querySelector("#header-contents");
+    if (headerElement) renderWithTemplate(headerTemplate, headerElement);
+    else console.warn("Element #header-contents introuvable.");
 
-  const footerTemplate = await loadTemplate("../partials/footer.html");
-  const footerElement = document.querySelector("#footer-contents");
-  renderWithTemplate(footerTemplate, footerElement);
+    const footerTemplate = await loadTemplate("/partials/footer.html");
+    const footerElement = document.querySelector("#footer-contents");
+    if (footerElement) renderWithTemplate(footerTemplate, footerElement);
+    else console.warn("Element #footer-contents introuvable.");
 
-  updateCartNotification();
+    updateCartNotification();
+  } catch (err) {
+    console.error("Erreur loadHeaderFooter:", err);
+  }
 
 }
 
