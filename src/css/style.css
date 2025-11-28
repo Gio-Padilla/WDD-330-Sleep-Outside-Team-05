@@ -424,3 +424,62 @@ footer p {
   margin: 0 0 0 -1rem;
   opacity: 0.9;
 }
+
+/* Container */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 8px 12px;
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Champ de texte */
+.search-bar input {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 50px;
+    background: transparent;
+}
+
+/* Bouton */
+.search-bar button {
+    background: #0077ff;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 1rem;
+}
+
+/* Effet hover */
+.search-bar button:hover {
+    background: #005fcc;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 100%;
+        padding: 6px 10px;
+    }
+    
+    .search-bar input {
+        font-size: 0.9rem;
+    }
+
+    .search-bar button {
+        padding: 8px 14px;
+    }
+}

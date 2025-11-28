@@ -1,45 +1,42 @@
-const baseURL = import.meta.env.VITE_SERVER_URL; // I had to display the URL in order to get it to work with github pages
-// const baseURL = "https://wdd330-backend.onrender.com/";
+const baseURL = import.meta.env.VITE_SERVER_URL;
 
 async function convertToJson(res) {
   const jsonResponse = await res.json();
-  if (res.ok) {
-    return jsonResponse;
-  } else {
-    throw { name: "servicesError", message: jsonResponse };
-  }
+  if (res.ok) return jsonResponse;
+  throw { name: "servicesError", message: jsonResponse };
 }
 
 export default class ExternalServices {
-  constructor() {
-    // this.category = category;
-    // this.path = `../json/${this.category}.json`;
-  }
+
   async getData(category) {
-    const response = await fetch(`${baseURL}products/search/${category} `);
+    const response = await fetch(`${baseURL}products/search/${category}`);
     const data = await convertToJson(response);
     return data.Result;
   }
+
   async findProductById(id) {
     const response = await fetch(`${baseURL}product/${id}`);
     const data = await convertToJson(response);
-    console.log(data.Result);
     return data.Result;
   }
+
+  async searchProducts(query) {
+    const response = await fetch(`${baseURL}products/search/${query}`);
+    const data = await convertToJson(response);
+    return data.Result;
+  }
+
   async checkout(payload) {
     try {
       const options = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       };
       const response = await fetch(`${baseURL}checkout/`, options);
-      // If the server returns a bad status
-      if (!response.ok) {
+
+      if (!response.ok)
         throw new Error(`Server error: ${response.status}`);
-      }
 
       return await convertToJson(response);
     } catch (err) {
@@ -47,5 +44,4 @@ export default class ExternalServices {
       return { error: true, message: err.message };
     }
   }
-
 }
