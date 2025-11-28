@@ -170,6 +170,12 @@ button {
 }
 
 .divider {
+<<<<<<< HEAD
+width: 900px;
+}
+
+
+=======
   width: 1000px;
 }
 
@@ -180,6 +186,7 @@ button {
   padding: 0.3rem;
   margin-top: 0.3rem;
 }
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
 
 .remove-btn {
   width: 120px;
@@ -331,6 +338,11 @@ footer p {
   padding: 1rem;
 }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
 #center-toast {
   position: fixed;
   top: 50%;

@@ -1,0 +1,5 @@
+[
+  { "message": "Free Shipping on Orders Over $50!", "background": "darkgreen", "color": "white" },
+  { "message": "New tents arriving next week!", "background": "darkblue", "color": "white" },
+  { "message": "Holiday Sale - Save up to 30%!", "background": "darkred", "color": "white" }
+]

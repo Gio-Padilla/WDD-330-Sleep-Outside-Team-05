@@ -48,7 +48,11 @@ function cartItemTemplate(item, index) {
       <p class="cart-card__color">${item.Colors[0].ColorName}</p>
 
       <p class="cart-card__quantity">
+<<<<<<< HEAD
+        quantity:
+=======
         Quantity:
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
         <input 
           type="number" 
           min="1" 
@@ -105,5 +109,9 @@ function checkoutButtonEvent() {
 
 // Initialize
 renderCartContents();
+<<<<<<< HEAD
+init();
+=======
 init();
 checkoutButtonEvent();
+>>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
