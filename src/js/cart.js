@@ -109,9 +109,4 @@ function checkoutButtonEvent() {
 
 // Initialize
 renderCartContents();
-<<<<<<< HEAD
 init();
-=======
-init();
-checkoutButtonEvent();
->>>>>>> 32a01781ef53b46b20fb9551a64528499134925f
